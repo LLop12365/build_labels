@@ -21,5 +21,5 @@ source /etc/profile
 date
 
 source /root/anaconda3/bin/activate labels
-python /home/program/build_labels/main.py
+python /home/program/build_labels/version/v1h.py
 rm "$LOCK_FILE"
