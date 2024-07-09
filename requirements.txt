@@ -1,0 +1,6 @@
+safetensors
+jieba
+cn_clip
+ffmpeg-python
+opencv-python
+torch==2.3.1
