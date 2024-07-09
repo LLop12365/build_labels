@@ -18,3 +18,4 @@ crontab -e
 0 * * * * sh build_labels/logs/get_start.sh >> build_labels/logs/cur_state.log 2>&1
 ```
 Please change the above path to your folder path
+This sh file includes a file lock. If the program in the previous time period has not finished running, the program in the current time period will continue to wait until the program in the previous time period has finished running
