@@ -7,3 +7,14 @@ If you want to install the environment, use the following code：
 pip install -r requirements.txt
 ```
 
+If you want to start
+```
+python main.py
+```
+
+If you want to start and have a scheduled task, once an hour, type the following code into crontab on linux
+```
+crontab -e
+0 * * * * sh build_labels/logs/get_start.sh >> build_labels/logs/cur_state.log 2>&1
+```
+Please change the above path to your folder path
