@@ -200,7 +200,19 @@ def main2(connection, cursor, dict_material, dict_ori, label_list, convert_label
                 connection.close()
                 cursor.close()
                 print("------------------------等待中------------------------", flush=True)
-                time.sleep(120)
+                time.sleep(60)
+
+            # 设置数据库重连机制
+            connect_flag = True
+            retry_count = 10
+            init_connect_count = 0
+            while connect_flag and init_connect_count < retry_count:
+                try: 
+                    connection, cursor = mysql_connect()
+                    connect_flag = False
+                except pymysql.Error as e:
+                    print("数据库连接失败，正在尝试重连，错误信息：{}".format(e))
+                    init_connect_count += 1
 
             connection, cursor = mysql_connect()
             now1 = datetime.datetime.now(pytz.timezone('Asia/Shanghai'))
